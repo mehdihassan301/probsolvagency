@@ -7,7 +7,7 @@ export const serviceDetails: Service[] = [
     title: 'Web Development',
     description: 'Crafting high-performance, visually stunning websites that drive business growth.',
     icon: WebDevIcon,
-    heroImage: '/images/services/web-dev-hero.jpg',
+    heroImage: '/images/web-dev-hero.jpg',
     overview: 'Our web development service focuses on creating responsive, scalable, and secure websites tailored to your brand. From corporate sites to complex e-commerce platforms, we build digital experiences that engage users and deliver results.',
     process: [
       { step: 'Discovery & Strategy', description: 'We start by understanding your goals, target audience, and technical requirements to create a comprehensive project roadmap.' },
@@ -30,7 +30,7 @@ export const serviceDetails: Service[] = [
     title: 'Vibe Coding Apps',
     description: 'Unique, aesthetic-driven app development that resonates with your brand\'s core identity.',
     icon: VibeCodeIcon,
-    heroImage: '/images/services/vibe-coded-hero.jpg',
+    heroImage: '/images/vibe-coded-hero.jpg',
     overview: 'Vibe Coding Apps go beyond functionality. We focus on creating an emotional connection with users through bespoke design, micro-interactions, and a cohesive brand experience. These are apps that feel as good as they look.',
     process: [
       { step: 'Vibe Discovery', description: 'We dive deep into your brand\'s ethos, aesthetics, and target audience to define the core "vibe".' },
@@ -53,7 +53,7 @@ export const serviceDetails: Service[] = [
     title: 'AI Business Automations',
     description: 'Integrating intelligent AI to automate workflows, support, and business processes.',
     icon: AIIcon,
-    heroImage: '/images/services/ai-automations-hero.jpg',
+    heroImage: '/images/ai-automations-hero.jpg',
     overview: 'Leverage the power of Artificial Intelligence to streamline your operations. We develop and integrate custom AI solutions, including chatbots, internal assistants, and automated support systems, to increase efficiency and reduce costs.',
     process: [
       { step: 'Process Analysis', description: 'We identify key areas in your business that are ripe for automation and will deliver the highest ROI.' },
@@ -78,24 +78,24 @@ export const portfolioItems: PortfolioItem[] = [
         id: 'agency-website',
         title: 'Agency Website', 
         category: 'Web Development', 
-        image: '/images/portfolio/agency-website/thumbnail.jpg',
+        image: '/images/agency-website/thumbnail.jpg',
         heroImage: '/images/portfolio/agency-website/hero.jpg',
         challenge: "A creative agency needed a new website to reflect their cutting-edge brand identity and showcase their portfolio in a visually stunning way. Their old site was slow, not mobile-friendly, and difficult to update.",
         solution: [
             {
                 title: "Discovery & Strategy",
                 description: "We started with a deep-dive into their brand, target audience, and competitors. This allowed us to define a clear strategy for a user-centric design that highlighted their unique value proposition.",
-                image: '/images/portfolio/agency-website/solution-1.jpg'
+                image: '/images/solution-1.jpg'
             },
             {
                 title: "Vibe-Coded Frontend",
                 description: "Using modern frameworks like React and GSAP for animations, we built a highly interactive and aesthetically pleasing frontend. The 'vibe' was crucial, so we focused on micro-interactions and smooth page transitions to create a premium feel.",
-                image: '/images/portfolio/agency-website/solution-2.jpg'
+                image: '/images/solution-2.jpg'
             },
             {
                 title: "Headless CMS Integration",
                 description: "To make content updates seamless, we integrated a headless CMS (Contentful). This gave the agency's team the power to update their portfolio and blog without needing any technical help, ensuring the site stays fresh.",
-                image: '/images/portfolio/agency-website/solution-3.jpg'
+                image: '/images/solution-3.jpg'
             }
         ],
         results: [
@@ -109,19 +109,19 @@ export const portfolioItems: PortfolioItem[] = [
         id: 'ai-automation-setup',
         title: 'AI Automation Setup', 
         category: 'AI Automations', 
-        image: '/images/portfolio/ai-automation/thumbnail.jpg',
-        heroImage: '/images/portfolio/ai-automation/hero.jpg',
+        image: '/images/ai-automation/thumbnail.jpg',
+        heroImage: '/images/ai-automation/hero.jpg',
         challenge: "A rapidly growing e-commerce brand was struggling with customer support volume. Their team was overwhelmed with repetitive questions, leading to slow response times and customer dissatisfaction.",
         solution: [
             {
                 title: "Process Analysis",
                 description: "We analyzed over 5,000 support tickets to identify the most common customer queries. We found that 80% of questions were related to order tracking, returns, and product information.",
-                image: '/images/portfolio/ai-automation/solution-1.jpg'
+                image: '/images/ai-automation/solution-1.jpg'
             },
             {
                 title: "Custom Chatbot Development",
                 description: "We built a custom AI chatbot using Google's Dialogflow and integrated it with their Shopify store data. The chatbot could instantly answer common questions and provide real-time order status updates.",
-                image: '/images/portfolio/ai-automation/solution-2.jpg'
+                image: '/images/solution-2.jpg'
             },
             {
                 title: "Seamless Human Handoff",

@@ -5,10 +5,16 @@ type AnimationType = 'network' | 'waves' | 'dots';
 
 interface ParticleBackgroundProps {
   type: AnimationType;
+<<<<<<< HEAD
   opacity?: number;
 }
 
 const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ type, opacity }) => {
+=======
+}
+
+const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ type }) => {
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -128,8 +134,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ type, opacity }
       const particleCount = type === 'network' ? (isMobile ? 50 : 100) : (isMobile ? 80 : 200);
       const speed = type === 'dots' ? 0.2 : 0.4;
       
+<<<<<<< HEAD
       const darkColors = [`rgba(123, 62, 240, ${opacity ?? 0.85})`, `rgba(106, 236, 255, ${opacity ?? 0.85})`];
       const lightColors = [`rgba(110, 42, 230, ${opacity ?? 0.85})`, `rgba(0, 150, 170, ${opacity ?? 0.85})`];
+=======
+      const darkColors = ['rgba(123, 62, 240, 0.85)', 'rgba(106, 236, 255, 0.85)'];
+      const lightColors = ['rgba(110, 42, 230, 0.85)', 'rgba(0, 150, 170, 0.85)'];
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
       const colors = isDarkMode ? darkColors : lightColors;
 
       for (let i = 0; i < particleCount; i++) {
@@ -180,8 +191,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ type, opacity }
         waves = [];
         const isDarkMode = document.documentElement.classList.contains('dark');
         const colors = isDarkMode
+<<<<<<< HEAD
             ? [`rgba(123, 62, 240, ${opacity ?? 0.5})`, `rgba(106, 236, 255, ${opacity ?? 0.5})`, `rgba(123, 62, 240, ${opacity ?? 0.35})`]
             : [`rgba(123, 62, 240, ${opacity ?? 0.5})`, `rgba(106, 236, 255, ${opacity ?? 0.5})`, `rgba(123, 62, 240, ${opacity ?? 0.35})`];
+=======
+            ? ['rgba(123, 62, 240, 0.5)', 'rgba(106, 236, 255, 0.5)', 'rgba(123, 62, 240, 0.35)']
+            : ['rgba(123, 62, 240, 0.5)', 'rgba(106, 236, 255, 0.5)', 'rgba(123, 62, 240, 0.35)'];
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             
         for(let i = 0; i < colors.length; i++) {
             waves.push({
@@ -257,7 +273,11 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ type, opacity }
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
     };
+<<<<<<< HEAD
   }, [type, opacity]);
+=======
+  }, [type]);
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 
   return (
     <canvas
@@ -268,4 +288,8 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ type, opacity }
   );
 };
 
+<<<<<<< HEAD
 export default ParticleBackground;
+=======
+export default ParticleBackground;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { TwitterIcon, LinkedInIcon, GitHubIcon, ArrowRightIcon, SpinnerIcon } from './Icons';
 import { Page } from '../types';
 import Logo from './Logo';
+<<<<<<< HEAD
 import GradientMesh from './GradientMesh';
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 
 interface FooterProps {
   setPage: (page: Page) => void;
@@ -63,9 +66,14 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
   ];
 
   return (
+<<<<<<< HEAD
     <footer className="relative overflow-hidden bg-surface_light dark:bg-surface_dark text-subtext_light dark:text-subtext_dark border-t border-border_light dark:border-border_dark">
       <GradientMesh />
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+=======
+    <footer className="bg-400% bg-gradient-footer-light dark:bg-gradient-footer-dark animate-gradient-bg text-subtext_light dark:text-subtext_dark border-t border-border_light dark:border-border_dark">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 text-sm">
           {/* Left Side: Info & Socials */}
           <div className="lg:col-span-4 space-y-4">
@@ -155,4 +163,8 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
   );
 };
 
+<<<<<<< HEAD
 export default Footer;
+=======
+export default Footer;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import React from 'react';
 
 export const SunIcon = (props: React.ComponentProps<'svg'>) => (
@@ -125,6 +128,7 @@ export const SpinnerIcon = (props: React.ComponentProps<'svg'>) => (
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
       ></path>
     </svg>
+<<<<<<< HEAD
   );
 
 export const ZapIcon = (props: React.ComponentProps<'svg'>) => (
@@ -225,3 +229,6 @@ export const VercelIcon = (props: React.ComponentProps<'svg'>) => (
     <path d="M12 2L2 22h20L12 2z" fill="currentColor"/>
   </svg>
 );
+=======
+  );
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

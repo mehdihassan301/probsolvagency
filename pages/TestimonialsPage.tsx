@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react';
+=======
+import React from 'react';
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import { testimonials } from '../components/constants';
 import AnimatedCardBackground from '../components/AnimatedCardBackground';
 
@@ -13,6 +17,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => (
 );
 
 const TestimonialsPage: React.FC = () => {
+<<<<<<< HEAD
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const titleRef = useRef<HTMLDivElement>(null);
@@ -55,6 +60,11 @@ const TestimonialsPage: React.FC = () => {
   return (
     <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
       <div ref={titleRef} className={`text-center max-w-2xl mx-auto mb-16 ${titleVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+=======
+  return (
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-2xl mx-auto mb-16">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-text_light dark:text-text_dark">What Our Clients Say</h1>
         <p className="mt-4 text-base md:text-lg text-subtext_light dark:text-subtext_dark">
           We're proud to have built strong relationships and delivered results that speak for themselves.
@@ -64,11 +74,16 @@ const TestimonialsPage: React.FC = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
+<<<<<<< HEAD
             // FIX: The ref callback should not return a value. Wrapped assignment in braces.
             ref={el => { cardRefs.current[index] = el; }}
             data-index={index}
             className={`relative bg-surface_light/90 dark:bg-surface_dark/90 border border-border_light dark:border-border_dark rounded-xl p-8 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 dark:hover:shadow-accent/20 will-change-[transform,opacity] ${visibleCards.has(index) ? 'animate-fade-in-up' : 'opacity-0'}`}
             style={{ animationDelay: `${index * 150}ms` }}
+=======
+            className="relative bg-surface_light/90 dark:bg-surface_dark/90 border border-border_light dark:border-border_dark rounded-xl p-8 flex flex-col justify-between animate-fade-in-up overflow-hidden"
+            style={{ animationDelay: `${index * 100}ms` }}
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
           >
             <AnimatedCardBackground />
             <div className="relative z-10 flex flex-col flex-grow justify-between">

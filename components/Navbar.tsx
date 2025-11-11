@@ -83,6 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, theme, setTheme }
               {navItems.map(item => <NavLink key={item} pageName={item} currentPage={currentPage} setPage={setPage} />)}
             </div>
             <div className="flex items-center">
+<<<<<<< HEAD
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setIsSearchOpen(true)}
@@ -111,6 +112,26 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, theme, setTheme }
                 </div>
               </div>
               <div className="md:hidden ml-2">
+=======
+              <button
+                onClick={() => setIsSearchOpen(true)}
+                className="p-2 rounded-full text-subtext_light dark:text-subtext_dark hover:text-text_light dark:hover:text-text_dark hover:bg-border_light/50 dark:hover:bg-border_dark/50 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-bg_dark focus:ring-offset-bg_light focus:ring-primary mr-2"
+                aria-label="Search"
+              >
+                <SearchIcon className="h-6 w-6" />
+              </button>
+              <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-full text-subtext_light dark:text-subtext_dark hover:text-text_light dark:hover:text-text_dark hover:bg-border_light/50 dark:hover:bg-border_dark/50 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-bg_dark focus:ring-offset-bg_light focus:ring-primary mr-2"
+                  aria-label="Toggle theme"
+              >
+                <span className="relative h-6 w-6 inline-flex items-center justify-center overflow-hidden">
+                  <SunIcon className={`h-6 w-6 transition-all duration-500 ease-in-out transform ${theme === 'dark' ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-50 opacity-0'}`} />
+                  <MoonIcon className={`h-6 w-6 absolute transition-all duration-500 ease-in-out transform ${theme === 'light' ? 'rotate-0 scale-100 opacity-100' : 'rotate-90 scale-50 opacity-0'}`} />
+                </span>
+              </button>
+              <div className="md:hidden">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                 <button
                   onClick={() => setIsOpen(!isOpen)}
                   className="p-2 rounded-md text-subtext_light dark:text-subtext_dark hover:text-text_light dark:hover:text-text_dark hover:bg-border_light/50 dark:hover:bg-border_dark/50"
@@ -182,4 +203,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage, theme, setTheme }
   );
 };
 
+<<<<<<< HEAD
 export default Navbar;
+=======
+export default Navbar;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

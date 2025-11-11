@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from 'react';
+=======
+
+import React, { useState } from 'react';
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import { Page } from '../types';
 import { serviceDetails } from '../components/constants';
 import { ChevronDownIcon } from '../components/Icons';
@@ -10,10 +15,17 @@ interface ServicesPageProps {
 
 const ServiceCard: React.FC<{ service: typeof serviceDetails[0], isOpen: boolean, onToggle: () => void, setPage: (page: Page, serviceId?: string) => void }> = ({ service, isOpen, onToggle, setPage }) => {
   return (
+<<<<<<< HEAD
     <div className="group relative border border-border_light dark:border-border_dark rounded-xl bg-surface_light/90 dark:bg-surface_dark/90 overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 dark:hover:shadow-accent/20 hover:border-primary dark:hover:border-accent focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 dark:focus-within:ring-offset-bg_dark">
       <AnimatedCardBackground />
       <div className="relative z-10">
         <button className="w-full text-left p-4 sm:p-6 md:p-8 flex justify-between items-center focus:outline-none" onClick={onToggle}>
+=======
+    <div className="group relative border border-border_light dark:border-border_dark rounded-xl bg-surface_light/90 dark:bg-surface_dark/90 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 dark:hover:shadow-primary/20 hover:border-primary dark:hover:border-accent">
+      <AnimatedCardBackground />
+      <div className="relative z-10">
+        <div className="p-4 sm:p-6 md:p-8 cursor-pointer flex justify-between items-center" onClick={onToggle}>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
           <div className="flex items-center space-x-4">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 dark:bg-primary/20 text-primary rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
               <service.icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-12deg]" />
@@ -24,7 +36,11 @@ const ServiceCard: React.FC<{ service: typeof serviceDetails[0], isOpen: boolean
             </div>
           </div>
           <ChevronDownIcon className={`w-6 h-6 text-subtext_light dark:text-subtext_dark transition-transform duration-300 ml-4 flex-shrink-0 ${isOpen ? 'transform rotate-180' : ''}`} />
+<<<<<<< HEAD
         </button>
+=======
+        </div>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <div 
           className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
         >
@@ -64,13 +80,21 @@ const ServiceCard: React.FC<{ service: typeof serviceDetails[0], isOpen: boolean
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                  <button
                   onClick={() => setPage('ServiceDetail', service.id)}
+<<<<<<< HEAD
                   className="w-full sm:w-auto px-5 py-2.5 border-2 border-primary text-primary font-semibold text-sm rounded-lg hover:bg-primary/10 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-offset-surface_dark"
+=======
+                  className="w-full sm:w-auto px-6 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/10 transition-colors duration-300"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                 >
                   Learn More
                 </button>
                 <button
                   onClick={() => setPage('Contact')}
+<<<<<<< HEAD
                   className="w-full sm:w-auto px-5 py-2.5 bg-primary text-white font-semibold text-sm rounded-lg hover:bg-purple-600 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white dark:focus-visible:ring-offset-surface_dark"
+=======
+                  className="w-full sm:w-auto px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-purple-600 transition-colors duration-300"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                 >
                   Build With ProbSolv
                 </button>
@@ -87,14 +111,18 @@ const ServiceCard: React.FC<{ service: typeof serviceDetails[0], isOpen: boolean
 
 const ServicesPage: React.FC<ServicesPageProps> = ({ setPage }) => {
   const [openService, setOpenService] = useState<string | null>(null);
+<<<<<<< HEAD
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const titleRef = useRef<HTMLDivElement>(null);
   const [titleVisible, setTitleVisible] = useState(false);
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 
   const toggleService = (id: string) => {
     setOpenService(openService === id ? null : id);
   };
+<<<<<<< HEAD
   
   useEffect(() => {
     const titleObserver = new IntersectionObserver(([entry]) => {
@@ -133,11 +161,18 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ setPage }) => {
   return (
     <div className="pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
       <div ref={titleRef} className={`text-center max-w-2xl mx-auto mb-12 sm:mb-16 ${titleVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+=======
+
+  return (
+    <div className="pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-text_light dark:text-text_dark">Our Services</h1>
         <p className="mt-4 text-base md:text-lg text-subtext_light dark:text-subtext_dark">
           We provide cutting-edge digital solutions to elevate your business.
         </p>
       </div>
+<<<<<<< HEAD
       <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
         {serviceDetails.map((service, index) => (
           <div 
@@ -155,10 +190,25 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ setPage }) => {
               setPage={setPage}
             />
           </div>
+=======
+      <div className="max-w-4xl mx-auto space-y-6">
+        {serviceDetails.map(service => (
+          <ServiceCard 
+            key={service.id} 
+            service={service} 
+            isOpen={openService === service.id} 
+            onToggle={() => toggleService(service.id)}
+            setPage={setPage}
+          />
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         ))}
       </div>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default ServicesPage;
+=======
+export default ServicesPage;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

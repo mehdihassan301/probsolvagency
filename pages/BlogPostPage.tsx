@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import React from 'react';
 import { Page, Post } from '../types';
 import { blogPosts } from '../components/constants';
@@ -57,10 +62,17 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, setPage }) => {
                         <h3 className="font-heading text-xl font-bold text-text_light dark:text-text_dark mb-4">Related Articles</h3>
                         <div className="space-y-4">
                             {relatedPosts.map(related => (
+<<<<<<< HEAD
                                 <button key={related.id} onClick={() => setPage('BlogPost', related.id)} className="group flex items-center space-x-4 text-left p-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-bg_dark">
                                     <img src={related.image} alt={related.title} className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg flex-shrink-0" />
                                     <div>
                                         <p className="font-heading font-bold text-text_light dark:text-text_dark group-hover:text-primary dark:group-hover:text-accent group-focus-visible:text-primary dark:group-focus-visible:text-accent">{related.title}</p>
+=======
+                                <button key={related.id} onClick={() => setPage('BlogPost', related.id)} className="group flex items-center space-x-4 text-left">
+                                    <img src={related.image} alt={related.title} className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg flex-shrink-0" />
+                                    <div>
+                                        <p className="font-heading font-bold text-text_light dark:text-text_dark group-hover:text-primary dark:group-hover:text-accent">{related.title}</p>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                                         <span className="text-sm text-subtext_light dark:text-subtext_dark">{related.date}</span>
                                     </div>
                                 </button>
@@ -74,7 +86,11 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, setPage }) => {
                     <div className="bg-primary/10 border border-primary/30 p-6 rounded-lg">
                         <h3 className="font-heading text-xl font-bold text-primary dark:text-accent mb-2">Have a project in mind?</h3>
                         <p className="text-subtext_light dark:text-subtext_dark mb-4">Let's turn your ideas into reality. We're here to help.</p>
+<<<<<<< HEAD
                         <button onClick={() => setPage('Contact')} className="w-full px-5 py-2.5 bg-primary text-white font-semibold text-sm rounded-lg hover:bg-purple-600 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white dark:focus-visible:ring-offset-primary/10">
+=======
+                        <button onClick={() => setPage('Contact')} className="w-full px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-purple-600 flex items-center justify-center">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                             <span>Get a Quote</span>
                             <ArrowRightIcon className="w-4 h-4 ml-2" />
                         </button>
@@ -87,4 +103,8 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, setPage }) => {
   );
 };
 
+<<<<<<< HEAD
 export default BlogPostPage;
+=======
+export default BlogPostPage;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

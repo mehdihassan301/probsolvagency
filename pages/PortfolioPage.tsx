@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react';
+=======
+
+import React from 'react';
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import { portfolioItems } from '../components/constants';
 import { Page } from '../types';
 
@@ -7,6 +12,7 @@ interface PortfolioPageProps {
 }
 
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ setPage }) => {
+<<<<<<< HEAD
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const titleRef = useRef<HTMLDivElement>(null);
@@ -50,12 +56,19 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ setPage }) => {
     <>
       <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={titleRef} className={`text-center max-w-2xl mx-auto mb-16 ${titleVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+=======
+  return (
+    <>
+      <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">Our Work</h1>
           <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400">
             A selection of projects that showcase our commitment to quality, creativity, and results.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<<<<<<< HEAD
           {portfolioItems.map((item, index) => (
             <div
               key={item.id}
@@ -65,6 +78,10 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ setPage }) => {
               className={`group relative overflow-hidden rounded-xl aspect-w-4 aspect-h-3 shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 dark:hover:shadow-accent/20 hover:-translate-y-2 hover:scale-105 will-change-[transform,opacity] ${visibleItems.has(index) ? 'animate-fade-in-up' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
+=======
+          {portfolioItems.map((item) => (
+            <div key={item.id} className="group relative overflow-hidden rounded-xl aspect-w-4 aspect-h-3">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
               <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
@@ -73,7 +90,11 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ setPage }) => {
                   <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <button
                           onClick={() => setPage('CaseStudy', item.id)}
+<<<<<<< HEAD
                           className="font-semibold text-white bg-primary/80 backdrop-blur-sm px-4 py-2 rounded-md hover:bg-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-white"
+=======
+                          className="font-semibold text-white bg-primary/80 backdrop-blur-sm px-4 py-2 rounded-md hover:bg-primary"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                       >
                           View Case Study
                       </button>

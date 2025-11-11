@@ -20,6 +20,7 @@ const LogoContent: React.FC<{ isScrolled?: boolean }> = ({ isScrolled }) => (
     <style>
       {`
         .logo-text {
+<<<<<<< HEAD
           transition: letter-spacing 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .logo-solv {
@@ -27,6 +28,15 @@ const LogoContent: React.FC<{ isScrolled?: boolean }> = ({ isScrolled }) => (
         }
         .logo-dot {
           transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+=======
+          transition: letter-spacing 0.4s ease-in-out;
+        }
+        .logo-solv {
+          transition: fill 0.4s ease-in-out;
+        }
+        .logo-dot {
+          transition: transform 0.4s ease-in-out;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         }
       `}
     </style>
@@ -41,7 +51,11 @@ const LogoContent: React.FC<{ isScrolled?: boolean }> = ({ isScrolled }) => (
     >
       <tspan className="text-text_light dark:text-text_dark fill-current">Prob</tspan>
       <tspan 
+<<<<<<< HEAD
         className={`logo-solv text-text_light dark:text-text_dark fill-current ${isScrolled ? 'animate-logo-text-glow' : ''}`}
+=======
+        className="logo-solv text-text_light dark:text-text_dark fill-current"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         style={{ fill: isScrolled ? 'var(--color-primary)' : '' }}
       >
         Solv
@@ -51,7 +65,11 @@ const LogoContent: React.FC<{ isScrolled?: boolean }> = ({ isScrolled }) => (
       cx="114"
       cy="21" 
       r="4" 
+<<<<<<< HEAD
       className="logo-dot text-primary dark:text-accent fill-current animate-logo-dot-glow"
+=======
+      className="logo-dot text-primary dark:text-accent fill-current"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
       style={{ transform: isScrolled ? 'translateX(-54px)' : 'translateX(0px)' }}
     />
   </svg>
@@ -79,4 +97,8 @@ const Logo: React.FC<LogoProps> = ({ setPage, className = '', isScrolled }) => {
     );
 };
 
+<<<<<<< HEAD
 export default Logo;
+=======
+export default Logo;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

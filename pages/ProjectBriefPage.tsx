@@ -29,7 +29,11 @@ const ProjectBriefPage: React.FC<ProjectBriefPageProps> = ({ planName, setPage }
 
   useEffect(() => {
     // Scroll to top on component mount
+<<<<<<< HEAD
     window.scrollTo({ top: 0, behavior: 'smooth' });
+=======
+    window.scrollTo(0, 0);
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -114,7 +118,11 @@ const ProjectBriefPage: React.FC<ProjectBriefPageProps> = ({ planName, setPage }
             <p className="text-subtext_light dark:text-subtext_dark">Thank you! We've received your project details and will be in touch within 24 hours to discuss the next steps.</p>
              <button
               onClick={() => setPage('Home')}
+<<<<<<< HEAD
               className="mt-8 px-5 py-2.5 bg-primary text-white font-semibold text-sm rounded-lg hover:bg-purple-600 transition-colors duration-300"
+=======
+              className="mt-8 px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-purple-600 transition-colors duration-300"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             >
               Back to Home
             </button>
@@ -166,7 +174,11 @@ const ProjectBriefPage: React.FC<ProjectBriefPageProps> = ({ planName, setPage }
             {/* Tech Experience */}
             <div>
               <label className="block text-sm font-medium text-subtext_light dark:text-subtext_dark mb-2">Are you new to working with technology/agencies?</label>
+<<<<<<< HEAD
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:space-x-4">
+=======
+              <div className="flex items-center space-x-4">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                 <label className="flex items-center">
                   <input type="radio" name="newToTech" value="Yes" required checked={formState.newToTech === 'Yes'} onChange={handleRadioChange} className="form-radio text-primary focus:ring-primary" />
                   <span className="ml-2 text-text_light dark:text-text_dark">Yes</span>
@@ -188,7 +200,11 @@ const ProjectBriefPage: React.FC<ProjectBriefPageProps> = ({ planName, setPage }
 
             {/* Submission */}
             <div>
+<<<<<<< HEAD
               <button type="submit" disabled={isSubmitting} className="w-full px-6 py-3 bg-primary text-white font-semibold rounded-lg text-base hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary/30 disabled:opacity-70 disabled:scale-100 flex items-center justify-center gap-2">
+=======
+              <button type="submit" disabled={isSubmitting} className="w-full px-8 py-4 bg-primary text-white font-bold rounded-lg text-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary/30 disabled:opacity-70 disabled:scale-100 flex items-center justify-center gap-2">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                 {isSubmitting && <SpinnerIcon className="w-5 h-5" />}
                 {isSubmitting ? 'Submitting...' : 'Submit Project Brief'}
               </button>

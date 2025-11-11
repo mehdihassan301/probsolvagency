@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import React from 'react';
 import { Theme } from '../types';
 
@@ -12,6 +15,7 @@ const AnimatedOrbs: React.FC<AnimatedOrbsProps> = ({ theme }) => {
       <div className="relative w-full h-full">
         {theme === 'dark' ? (
           <>
+<<<<<<< HEAD
             <div className="absolute top-[-10%] left-[10%] w-96 h-96 bg-primary rounded-full opacity-30 blur-3xl filter animate-float-1 will-change-transform"></div>
             <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-accent rounded-full opacity-20 blur-3xl filter animate-float-2 will-change-transform"></div>
             <div className="absolute top-[20%] right-[20%] w-72 h-72 bg-purple-500 rounded-full opacity-20 blur-3xl filter animate-float-3 will-change-transform"></div>
@@ -21,6 +25,17 @@ const AnimatedOrbs: React.FC<AnimatedOrbsProps> = ({ theme }) => {
             <div className="absolute top-[-10%] left-[10%] w-96 h-96 bg-primary rounded-full opacity-30 blur-3xl filter animate-float-1 will-change-transform"></div>
             <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-accent rounded-full opacity-40 blur-3xl filter animate-float-2 will-change-transform"></div>
             <div className="absolute top-[20%] right-[20%] w-72 h-72 bg-purple-400 rounded-full opacity-30 blur-3xl filter animate-float-3 will-change-transform"></div>
+=======
+            <div className="absolute top-[-10%] left-[10%] w-96 h-96 bg-primary rounded-full opacity-30 blur-3xl filter animate-float-1"></div>
+            <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-accent rounded-full opacity-20 blur-3xl filter animate-float-2"></div>
+            <div className="absolute top-[20%] right-[20%] w-72 h-72 bg-purple-500 rounded-full opacity-20 blur-3xl filter animate-float-3"></div>
+          </>
+        ) : (
+          <>
+            <div className="absolute top-[-10%] left-[10%] w-96 h-96 bg-primary rounded-full opacity-30 blur-3xl filter animate-float-1"></div>
+            <div className="absolute bottom-[-5%] right-[5%] w-80 h-80 bg-accent rounded-full opacity-40 blur-3xl filter animate-float-2"></div>
+            <div className="absolute top-[20%] right-[20%] w-72 h-72 bg-purple-400 rounded-full opacity-30 blur-3xl filter animate-float-3"></div>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
           </>
         )}
       </div>
@@ -28,4 +43,8 @@ const AnimatedOrbs: React.FC<AnimatedOrbsProps> = ({ theme }) => {
   );
 };
 
+<<<<<<< HEAD
 export default AnimatedOrbs;
+=======
+export default AnimatedOrbs;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

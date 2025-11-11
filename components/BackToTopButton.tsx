@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpIcon } from './Icons';
+<<<<<<< HEAD
 import { smoothScrollTo } from '../utils/smoothScroll';
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +17,14 @@ const BackToTopButton: React.FC = () => {
   };
 
   const scrollToTop = () => {
+<<<<<<< HEAD
     smoothScrollTo(0, 800);
+=======
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   };
 
   useEffect(() => {
@@ -38,4 +48,8 @@ const BackToTopButton: React.FC = () => {
   );
 };
 
+<<<<<<< HEAD
 export default BackToTopButton;
+=======
+export default BackToTopButton;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+<<<<<<< HEAD
 import { ChevronDownIcon, SparklesIcon, BrainIcon, UsersIcon, SpinnerIcon } from './Icons';
+=======
+import { ChevronDownIcon } from './Icons';
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import AnimatedCardBackground from './AnimatedCardBackground';
 
 const faqs = [
@@ -35,6 +39,7 @@ const faqs = [
     question: 'Do you offer support after the project is launched?',
     answer: 'Absolutely. We offer various support and maintenance packages to ensure your digital asset remains secure, updated, and performing optimally. We believe in building long-term partnerships, not just one-off projects.',
   },
+<<<<<<< HEAD
   {
     question: 'What if my project scope changes mid-way?',
     answer: 'We understand that project requirements can evolve. We use an agile approach, which allows for flexibility. For significant changes, we\'ll discuss the impact on timeline and budget and issue a change order. Minor adjustments can often be accommodated within the existing sprint.',
@@ -115,6 +120,8 @@ const faqs = [
     question: 'What if I need features not in your pricing packages?',
     answer: 'Our pricing packages are designed as starting points. We understand every project is unique. We are happy to create a custom proposal tailored to your specific feature requirements, complexity, and long-term goals. Just get in touch for a custom quote.',
   }
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 ];
 
 // Custom component for the count-up animation
@@ -129,6 +136,10 @@ const CountUp: React.FC<{ end: number; duration?: number; suffix?: string; inVie
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       
+<<<<<<< HEAD
+=======
+      // Ease-out quint function for a smoother animation
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
       const easedProgress = 1 - Math.pow(1 - progress, 5);
       const currentCount = Math.floor(easedProgress * end);
       
@@ -137,7 +148,11 @@ const CountUp: React.FC<{ end: number; duration?: number; suffix?: string; inVie
       if (progress < 1) {
         requestAnimationFrame(step);
       } else {
+<<<<<<< HEAD
          setCount(end);
+=======
+         setCount(end); // Ensure it ends on the exact number
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
       }
     };
 
@@ -151,6 +166,7 @@ const CountUp: React.FC<{ end: number; duration?: number; suffix?: string; inVie
 };
 
 
+<<<<<<< HEAD
 const useAnimateOnScroll = (ref: React.RefObject<HTMLElement>, threshold = 0.1) => {
     const [isInView, setIsInView] = useState(false);
     useEffect(() => {
@@ -224,11 +240,18 @@ const AboutPage: React.FC = () => {
       });
     };
   }, [showAllFaqs]);
+=======
+const AboutPage: React.FC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [statsInView, setStatsInView] = useState(false);
+  const statsRef = useRef<HTMLDivElement | null>(null);
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+<<<<<<< HEAD
   const handleQuestionSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (question.trim()) {
@@ -277,6 +300,36 @@ const AboutPage: React.FC = () => {
   return (
     <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
       <div ref={titleRef} className={`text-center max-w-3xl mx-auto mb-16 will-change-[transform,opacity] ${titleInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+=======
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsInView(true);
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      }
+    );
+  
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+  
+    return () => {
+      if (statsRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-3xl mx-auto mb-16">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-text_light dark:text-text_dark">About ProbSolv</h1>
         <p className="mt-4 text-base md:text-lg text-subtext_light dark:text-subtext_dark">
           We are a team of passionate designers, developers, and strategists dedicated to building the future of digital experiences.
@@ -285,6 +338,7 @@ const AboutPage: React.FC = () => {
 
       <div className="max-w-4xl mx-auto">
         <div className="space-y-12">
+<<<<<<< HEAD
             <div ref={missionRef} className={`will-change-[transform,opacity] ${missionInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-4">Our Mission</h2>
               <p className="text-base md:text-lg lg:text-xl text-subtext_light dark:text-subtext_dark leading-relaxed">
@@ -330,10 +384,55 @@ const AboutPage: React.FC = () => {
                     </div>
                   </div>
                ))}
+=======
+            <div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-4">Our Mission</h2>
+            <p className="text-base md:text-lg lg:text-xl text-subtext_light dark:text-subtext_dark leading-relaxed">
+                Our mission is to empower businesses by creating intelligent, beautiful, and automated digital systems. We believe that smart technology and great design are the keys to unlocking sustainable growth and competitive advantage in any industry.
+            </p>
+            </div>
+
+            <div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-4">Our Philosophy</h2>
+            <p className="text-base md:text-lg lg:text-xl text-subtext_light dark:text-subtext_dark leading-relaxed">
+                We operate on three core principles: <strong className="text-primary dark:text-accent">Problem-First Thinking</strong>, where we deeply understand the challenge before building the solution; <strong className="text-primary dark:text-accent">Aesthetic Excellence</strong>, because we believe great products should feel amazing to use; and <strong className="text-primary dark:text-accent">Partnership Over Process</strong>, focusing on collaborative relationships with our clients to achieve shared goals.
+            </p>
+            </div>
+
+            <div ref={statsRef} className="grid md:grid-cols-3 gap-8 text-center pt-8">
+              <div className="relative bg-bg_light/90 dark:bg-surface_dark/90 p-6 rounded-xl overflow-hidden">
+                  <AnimatedCardBackground />
+                  <div className="relative z-10">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">
+                        <CountUp end={100} inView={statsInView} suffix="+" />
+                    </h3>
+                    <p className="text-subtext_light dark:text-subtext_dark">Projects Launched</p>
+                  </div>
+              </div>
+              <div className="relative bg-bg_light/90 dark:bg-surface_dark/90 p-6 rounded-xl overflow-hidden">
+                  <AnimatedCardBackground />
+                  <div className="relative z-10">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">
+                        <CountUp end={50} inView={statsInView} suffix="+" />
+                    </h3>
+                    <p className="text-subtext_light dark:text-subtext_dark">Happy Clients</p>
+                  </div>
+              </div>
+              <div className="relative bg-bg_light/90 dark:bg-surface_dark/90 p-6 rounded-xl overflow-hidden">
+                  <AnimatedCardBackground />
+                  <div className="relative z-10">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">
+                        <CountUp end={1} inView={statsInView} suffix="M+" />
+                    </h3>
+                    <p className="text-subtext_light dark:text-subtext_dark">End Users Impacted</p>
+                  </div>
+              </div>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             </div>
         </div>
         
         {/* FAQ Section */}
+<<<<<<< HEAD
         <section ref={faqRef} className="mt-24">
             <h2 className={`font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark text-center mb-12 will-change-[transform,opacity] ${faqInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -347,11 +446,25 @@ const AboutPage: React.FC = () => {
                   <button
                     onClick={() => toggleFaq(index)}
                     className="w-full flex justify-between items-center text-left p-6 focus:outline-none"
+=======
+        <section className="mt-24">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark text-center mb-12">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-border_light dark:border-border_dark rounded-lg bg-surface_light dark:bg-surface_dark">
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full flex justify-between items-center text-left p-6"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                   >
                     <span className="text-lg font-semibold text-text_light dark:text-text_dark">{faq.question}</span>
                     <ChevronDownIcon className={`w-6 h-6 text-subtext_light dark:text-subtext_dark transition-transform duration-300 ${openFaq === index ? 'transform rotate-180' : ''}`} />
                   </button>
+<<<<<<< HEAD
                   <div className={`overflow-hidden transition-all duration-400 ease-in-out ${openFaq === index ? 'max-h-96' : 'max-h-0'}`}>
+=======
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openFaq === index ? 'max-h-96' : 'max-h-0'}`}>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                     <div className="p-6 pt-0 text-subtext_light dark:text-subtext_dark">
                       <p>{faq.answer}</p>
                     </div>
@@ -359,6 +472,7 @@ const AboutPage: React.FC = () => {
                 </div>
               ))}
             </div>
+<<<<<<< HEAD
 
             <div className="mt-8 text-center flex flex-col sm:flex-row justify-center items-center gap-4">
                 <button
@@ -420,6 +534,8 @@ const AboutPage: React.FC = () => {
                 )}
               </div>
             )}
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         </section>
       </div>
     </div>

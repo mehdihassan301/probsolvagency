@@ -120,7 +120,11 @@ const ContactPage: React.FC = () => {
               {errors.message && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
             </div>
             <div>
+<<<<<<< HEAD
               <button type="submit" disabled={isSubmitting} className="w-full px-6 py-3 bg-primary text-white font-semibold rounded-lg text-base hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary/30 disabled:opacity-70 disabled:scale-100 flex items-center justify-center gap-2">
+=======
+              <button type="submit" disabled={isSubmitting} className="w-full px-8 py-4 bg-primary text-white font-bold rounded-lg text-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary/30 disabled:opacity-70 disabled:scale-100 flex items-center justify-center gap-2">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                 {isSubmitting && <SpinnerIcon className="w-5 h-5" />}
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import React from 'react';
 
 export type Page = 'Home' | 'Services' | 'ServiceDetail' | 'Pricing' | 'Portfolio' | 'About' | 'Testimonials' | 'Contact' | 'Blog' | 'BlogPost' | 'PrivacyPolicy' | 'TermsOfService' | 'Careers' | 'CaseStudy' | 'ProjectBrief';
@@ -64,8 +67,11 @@ export interface Job {
 export interface PricingTier {
   name: string;
   price: string;
+<<<<<<< HEAD
   originalPrice?: string;
   discount?: string;
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   description: string;
   features: string[];
   delivery: string;

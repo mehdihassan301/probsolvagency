@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import { Page } from '../types';
 import { jobOpenings } from '../components/constants';
 import { ChevronDownIcon, WebDevIcon, VibeCodeIcon, AIIcon } from '../components/Icons';
@@ -10,10 +14,17 @@ interface CareersPageProps {
 
 const JobOpeningCard: React.FC<{ job: typeof jobOpenings[0], isOpen: boolean, onToggle: () => void, setPage: (page: Page) => void }> = ({ job, isOpen, onToggle, setPage }) => {
   return (
+<<<<<<< HEAD
     <div className="relative border border-border_light dark:border-border_dark rounded-xl bg-surface_light/90 dark:bg-surface_dark/90 overflow-hidden transition-all duration-300 ease-in-out hover:border-primary dark:hover:border-accent hover:shadow-2xl hover:shadow-primary/20 dark:hover:shadow-accent/20 hover:scale-105 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 dark:focus-within:ring-offset-bg_dark">
       <AnimatedCardBackground />
       <div className="relative z-10">
         <button className="w-full text-left p-6 md:p-8 focus:outline-none" onClick={onToggle}>
+=======
+    <div className="relative border border-border_light dark:border-border_dark rounded-xl bg-surface_light/90 dark:bg-surface_dark/90 overflow-hidden transition-all duration-300 hover:border-primary dark:hover:border-accent hover:shadow-lg">
+      <AnimatedCardBackground />
+      <div className="relative z-10">
+        <div className="p-6 md:p-8 cursor-pointer" onClick={onToggle}>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             <div className="flex justify-between items-start">
                 <div>
                     <h3 className="font-heading text-xl sm:text-2xl font-bold text-text_light dark:text-text_dark">{job.title}</h3>
@@ -25,7 +36,11 @@ const JobOpeningCard: React.FC<{ job: typeof jobOpenings[0], isOpen: boolean, on
                 </div>
                 <ChevronDownIcon className={`w-6 h-6 text-subtext_light dark:text-subtext_dark transition-transform duration-300 flex-shrink-0 mt-1 ${isOpen ? 'transform rotate-180' : ''}`} />
             </div>
+<<<<<<< HEAD
         </button>
+=======
+        </div>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[2000px]' : 'max-h-0'}`}>
             <div className="px-6 md:px-8 pb-8">
             <p className="text-subtext_light dark:text-subtext_dark mb-6">{job.description}</p>
@@ -42,7 +57,11 @@ const JobOpeningCard: React.FC<{ job: typeof jobOpenings[0], isOpen: boolean, on
 
             <button
                 onClick={() => setPage('Contact')}
+<<<<<<< HEAD
                 className="px-5 py-2.5 bg-primary text-white font-semibold text-sm rounded-lg hover:bg-purple-600 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white dark:focus-visible:ring-offset-surface_dark"
+=======
+                className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-purple-600 transition-colors duration-300"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             >
                 Apply Now
             </button>
@@ -53,6 +72,7 @@ const JobOpeningCard: React.FC<{ job: typeof jobOpenings[0], isOpen: boolean, on
   );
 };
 
+<<<<<<< HEAD
 const useAnimateOnScroll = (ref: React.RefObject<HTMLElement>, threshold = 0.1) => {
     const [isInView, setIsInView] = useState(false);
     useEffect(() => {
@@ -87,6 +107,11 @@ const CareersPage: React.FC<CareersPageProps> = ({ setPage }) => {
   const cultureInView = useAnimateOnScroll(cultureRef);
   const openingsInView = useAnimateOnScroll(openingsRef);
 
+=======
+const CareersPage: React.FC<CareersPageProps> = ({ setPage }) => {
+  const [openJob, setOpenJob] = useState<string | null>(null);
+
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   const toggleJob = (id: string) => {
     setOpenJob(openJob === id ? null : id);
   };
@@ -99,13 +124,18 @@ const CareersPage: React.FC<CareersPageProps> = ({ setPage }) => {
 
   return (
     <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 container mx-auto px-4 sm:px-6 lg:px-8">
+<<<<<<< HEAD
       <div ref={titleRef} className={`text-center max-w-3xl mx-auto mb-16 will-change-[transform,opacity] ${titleInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+=======
+      <div className="text-center max-w-3xl mx-auto mb-16">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-text_light dark:text-text_dark">Join Our Team</h1>
         <p className="mt-4 text-base md:text-lg text-subtext_light dark:text-subtext_dark">
           We're building the future of digital systems, and we're looking for passionate, talented people to join us on our mission.
         </p>
       </div>
 
+<<<<<<< HEAD
       <section ref={cultureRef} className="py-12 sm:py-16 bg-bg_light dark:bg-surface_dark rounded-xl mb-16">
         <div className="container mx-auto px-4 text-center">
             <h2 className={`font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-12 will-change-[transform,opacity] ${cultureInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Why Work at ProbSolv?</h2>
@@ -114,6 +144,16 @@ const CareersPage: React.FC<CareersPageProps> = ({ setPage }) => {
                     <div key={item.title} className={`flex flex-col items-center p-6 rounded-xl transition-all duration-300 ease-in-out hover:bg-surface_light dark:hover:bg-surface_dark/80 hover:shadow-2xl hover:shadow-primary/15 dark:hover:shadow-accent/15 hover:-translate-y-2 hover:scale-105 will-change-[transform,opacity] ${cultureInView ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: `${index * 150}ms` }}>
                         <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 transition-colors duration-300">
                             <item.icon className="w-8 h-8 transition-transform duration-300" />
+=======
+      <section className="py-12 sm:py-16 bg-bg_light dark:bg-surface_dark rounded-xl mb-16">
+        <div className="container mx-auto px-4 text-center">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-12">Why Work at ProbSolv?</h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
+                {cultureItems.map((item) => (
+                    <div key={item.title} className="group flex flex-col items-center">
+                        <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                            <item.icon className="w-8 h-8 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-12deg]" />
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                         </div>
                         <h3 className="font-heading text-xl font-bold text-primary dark:text-accent mb-2">{item.title}</h3>
                         <p className="text-subtext_light dark:text-subtext_dark">{item.description}</p>
@@ -123,26 +163,45 @@ const CareersPage: React.FC<CareersPageProps> = ({ setPage }) => {
         </div>
       </section>
 
+<<<<<<< HEAD
       <div ref={openingsRef} className="max-w-4xl mx-auto">
         <h2 className={`font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-8 text-center will-change-[transform,opacity] ${openingsInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Current Openings</h2>
         <div className="space-y-6">
             {jobOpenings.map((job, index) => (
               <div key={job.id} className={`will-change-[transform,opacity] ${openingsInView ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: `${index * 100}ms` }}>
                 <JobOpeningCard 
+=======
+      <div className="max-w-4xl mx-auto">
+        <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-8 text-center">Current Openings</h2>
+        <div className="space-y-6">
+            {jobOpenings.map(job => (
+                <JobOpeningCard 
+                    key={job.id}
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                     job={job}
                     isOpen={openJob === job.id}
                     onToggle={() => toggleJob(job.id)}
                     setPage={setPage}
                 />
+<<<<<<< HEAD
               </div>
             ))}
         </div>
         <div className={`text-center mt-12 p-8 bg-bg_light dark:bg-surface_dark rounded-lg will-change-[transform,opacity] ${openingsInView ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '300ms'}}>
+=======
+            ))}
+        </div>
+        <div className="text-center mt-12 p-8 bg-bg_light dark:bg-surface_dark rounded-lg">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             <h3 className="font-heading text-2xl font-bold text-text_light dark:text-text_dark">Don't see your role?</h3>
             <p className="text-subtext_light dark:text-subtext_dark mt-2 mb-4">We're always looking for talented individuals. If you believe you're a great fit for our team, we'd love to hear from you.</p>
             <button
                 onClick={() => setPage('Contact')}
+<<<<<<< HEAD
                 className="px-6 py-2.5 bg-primary text-white font-semibold text-sm rounded-lg hover:bg-purple-600 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white dark:focus-visible:ring-offset-surface_dark"
+=======
+                className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-purple-600 transition-colors duration-300"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             >
                 Get In Touch
             </button>

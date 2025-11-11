@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -22,3 +23,18 @@ export default defineConfig(({ mode }) => {
       }
     };
 });
+=======
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'dist',
+  },
+  server: {
+    port: 5173,
+  },
+})
+
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e

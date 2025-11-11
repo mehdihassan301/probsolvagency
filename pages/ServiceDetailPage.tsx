@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Page, Service } from '../types';
 import ParticleBackground from '../components/ParticleBackground';
 import { SpinnerIcon, ArrowRightIcon } from '../components/Icons';
 import { blogPosts } from '../components/constants';
+<<<<<<< HEAD
 import { smoothScrollTo } from '../utils/smoothScroll';
+=======
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
 
 interface ServiceDetailPageProps {
   service: Service;
@@ -11,6 +18,14 @@ interface ServiceDetailPageProps {
 }
 
 const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage }) => {
+<<<<<<< HEAD
+=======
+  const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   const [activeStep, setActiveStep] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -92,6 +107,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
 
 
   const handleStepClick = (index: number) => {
+<<<<<<< HEAD
     const element = stepRefs.current[index];
     if (!element) return;
 
@@ -99,16 +115,90 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
     const absoluteElementTop = elementRect.top + window.scrollY;
     const middle = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
     smoothScrollTo(middle, 800);
+=======
+    stepRefs.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
   };
   
   const handleSectionLinkClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+<<<<<<< HEAD
         const headerOffset = 88; // pt-24 on main content area
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
         smoothScrollTo(offsetPosition, 800);
+=======
+        const navbarHeight = 64; // From Navbar h-16
+        const mobileNavHeight = window.innerWidth < 768 ? 52 : 0; // Height of mobile sticky nav
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - mobileNavHeight - 20; // 20px margin
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+        });
+    }
+  };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formState.name.trim()) {
+      newErrors.name = 'Name is required.';
+    }
+    if (!formState.email.trim()) {
+      newErrors.email = 'Email is required.';
+    } else if (!/\S+@\S+\.\S+/.test(formState.email)) {
+      newErrors.email = 'Please enter a valid email address.';
+    }
+    if (!formState.phone.trim()) {
+      newErrors.phone = 'Phone number is required.';
+    } else if (!/^\+?[1-9]\d{6,14}$/.test(formState.phone.replace(/[\s-()]/g, ''))) {
+      newErrors.phone = 'Please enter a valid phone number with country code.';
+    }
+    if (!formState.message.trim()) {
+      newErrors.message = 'Message is required.';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+        setIsSubmitting(true);
+        setSubmitError(null);
+        try {
+            const response = await fetch('https://formspree.io/f/mpwozakj', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({ ...formState, service: service.title, form_source: 'Service Detail Page' }),
+            });
+
+            if (response.ok) {
+                setFormSubmitted(true);
+            } else {
+                throw new Error('Form submission failed.');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            setSubmitError('There was an error sending your request. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
     }
   };
 
@@ -156,7 +246,11 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Progress Indicator Sidebar */}
+<<<<<<< HEAD
           <aside className="hidden md:block md:col-span-4">
+=======
+          <aside className="hidden md:block md:col-span-3">
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
             <div className="sticky top-28">
               <nav aria-labelledby="service-navigation">
                 <div className="mb-8">
@@ -203,6 +297,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
           </aside>
 
           {/* Main Content */}
+<<<<<<< HEAD
           <main className="col-span-12 md:col-span-8">
             {/* Benefits */}
             <section ref={benefitsRef} id="benefits" className="mb-12 scroll-mt-24" aria-labelledby="benefits-heading">
@@ -211,6 +306,16 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
                 {service.benefits.map((benefit, i) => (
                   <div key={i} className="bg-surface_light dark:bg-surface_dark border border-border_light dark:border-border_dark p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 dark:hover:shadow-accent/20 hover:-translate-y-2 hover:scale-105">
                     <h3 className="font-heading text-base sm:text-lg font-semibold text-primary dark:text-accent">{benefit}</h3>
+=======
+          <main className="col-span-12 md:col-span-9 lg:col-span-6">
+            {/* Benefits */}
+            <section ref={benefitsRef} id="benefits" className="mb-12 scroll-mt-24" aria-labelledby="benefits-heading">
+              <h2 id="benefits-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6">Benefits</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {service.benefits.map((benefit, i) => (
+                  <div key={i} className="bg-surface_light dark:bg-surface_dark border border-border_light dark:border-border_dark p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 hover:scale-[1.02]">
+                    <h3 className="font-heading text-lg font-semibold text-primary dark:text-accent">{benefit}</h3>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                   </div>
                 ))}
               </div>
@@ -218,7 +323,11 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
 
             {/* Process */}
             <section ref={processRef} id="process" className="mb-12 scroll-mt-24" aria-labelledby="process-main-heading">
+<<<<<<< HEAD
               <h2 id="process-main-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6 text-center md:text-left">Our Step-by-Step Process</h2>
+=======
+              <h2 id="process-main-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6">Our Step-by-Step Process</h2>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
               <div className="space-y-6">
                 {service.process.map((p, i) => (
                   <div key={i} ref={(el) => { stepRefs.current[i] = el; }} className="flex scroll-mt-24">
@@ -231,7 +340,11 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
                       {i < service.process.length - 1 && <div className="w-px h-full bg-primary/30"></div>}
                     </div>
                     <div className="pb-8">
+<<<<<<< HEAD
                       <h3 className="font-heading mb-2 text-lg sm:text-xl font-bold text-text_light dark:text-text_dark">{p.step}</h3>
+=======
+                      <h3 className="font-heading mb-2 text-xl font-bold text-text_light dark:text-text_dark">{p.step}</h3>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                       <p className="text-subtext_light dark:text-subtext_dark">{p.description}</p>
                     </div>
                   </div>
@@ -241,11 +354,19 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
 
             {/* Why Us */}
             <section ref={whyUsRef} id="why-us" className="scroll-mt-24" aria-labelledby="why-us-heading">
+<<<<<<< HEAD
               <h2 id="why-us-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6 text-center md:text-left">Why ProbSolv?</h2>
               <div className="space-y-6">
                 {service.whyUs.map((reason, i) => (
                   <div key={i} className="bg-bg_light dark:bg-surface_dark p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 dark:hover:shadow-accent/20 hover:-translate-y-2 hover:scale-105">
                     <h3 className="font-heading text-lg sm:text-xl font-semibold text-text_light dark:text-text_dark mb-2">{reason.title}</h3>
+=======
+              <h2 id="why-us-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6">Why ProbSolv?</h2>
+              <div className="space-y-6">
+                {service.whyUs.map((reason, i) => (
+                  <div key={i} className="bg-bg_light dark:bg-surface_dark p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02]">
+                    <h3 className="font-heading text-xl font-semibold text-text_light dark:text-text_dark mb-2">{reason.title}</h3>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                     <p className="text-subtext_light dark:text-subtext_dark">{reason.description}</p>
                   </div>
                 ))}
@@ -255,13 +376,21 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
             {/* Related Insights */}
             {relatedPosts.length > 0 && (
                 <section id="related-insights" className="mt-16 scroll-mt-24" aria-labelledby="related-insights-heading">
+<<<<<<< HEAD
                     <h2 id="related-insights-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6 text-center md:text-left">Related Insights</h2>
+=======
+                    <h2 id="related-insights-heading" className="font-heading text-2xl sm:text-3xl font-bold text-text_light dark:text-text_dark mb-6">Related Insights</h2>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                     <div className="grid md:grid-cols-2 gap-6">
                         {relatedPosts.map((post) => (
                             <button
                                 key={post.id}
                                 onClick={() => setPage('BlogPost', post.id)}
+<<<<<<< HEAD
                                 className="group bg-surface_light dark:bg-surface_dark border border-border_light dark:border-border_dark rounded-xl text-left transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 dark:hover:shadow-accent/15 hover:-translate-y-2 hover:scale-105 hover:border-primary dark:hover:border-accent flex flex-col"
+=======
+                                className="group bg-surface_light dark:bg-surface_dark border border-border_light dark:border-border_dark rounded-xl text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary dark:hover:border-accent flex flex-col"
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
                             >
                                 <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-t-xl">
                                     <img src={post.image} alt={post.title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -280,10 +409,64 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, setPage 
                 </section>
             )}
           </main>
+<<<<<<< HEAD
+=======
+
+          {/* Contact Form Sidebar */}
+          <aside className="col-span-12 lg:col-span-3">
+            <div className="sticky top-28 space-y-8">
+              <div className="bg-primary/10 border border-primary/30 p-6 rounded-lg text-center" role="status">
+                <p className="font-semibold text-primary">Guarantee: Elite-quality delivery with revisions until satisfaction.</p>
+                <p className="text-sm text-accent mt-2">Plus, a 7-Day Money-Back Promise.</p>
+              </div>
+              <div className="bg-surface_light dark:bg-surface_dark p-6 rounded-lg border border-border_light dark:border-border_dark">
+                <h3 className="font-heading text-2xl font-bold text-text_light dark:text-text_dark mb-4 text-center">Start Your Project</h3>
+                {formSubmitted ? (
+                    <div className="text-center p-4 bg-green-500/20 text-green-400 dark:text-green-300 rounded-lg animate-fade-in" role="alert">
+                        <h4 className="font-heading font-bold">Thank You!</h4>
+                        <p>We've received your request and will be in touch shortly.</p>
+                    </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                    <div>
+                        <label htmlFor="name" className="sr-only">Your Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your Name" required value={formState.name} onChange={handleFormChange} className={`w-full bg-bg_light dark:bg-bg_dark border rounded-md p-3 text-text_light dark:text-text_dark placeholder-subtext_light ${errors.name ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border_light dark:border-border_dark focus:ring-primary focus:border-primary'}`} />
+                        {errors.name && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>}
+                    </div>
+                    <div>
+                        <label htmlFor="email" className="sr-only">Your Email</label>
+                        <input id="email" name="email" type="email" placeholder="Your Email" required value={formState.email} onChange={handleFormChange} className={`w-full bg-bg_light dark:bg-bg_dark border rounded-md p-3 text-text_light dark:text-text_dark placeholder-subtext_light ${errors.email ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border_light dark:border-border_dark focus:ring-primary focus:border-primary'}`} />
+                        {errors.email && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>}
+                    </div>
+                    <div>
+                        <label htmlFor="phone" className="sr-only">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" placeholder="Phone Number (+1...)" required value={formState.phone} onChange={handleFormChange} className={`w-full bg-bg_light dark:bg-bg_dark border rounded-md p-3 text-text_light dark:text-text_dark placeholder-subtext_light ${errors.phone ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border_light dark:border-border_dark focus:ring-primary focus:border-primary'}`} />
+                        {errors.phone && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.phone}</p>}
+                    </div>
+                    <div>
+                        <label htmlFor="message" className="sr-only">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" rows={4} required value={formState.message} onChange={handleFormChange} className={`w-full bg-bg_light dark:bg-bg_dark border rounded-md p-3 text-text_light dark:text-text_dark placeholder-subtext_light ${errors.message ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-border_light dark:border-border_dark focus:ring-primary focus:border-primary'}`}></textarea>
+                        {errors.message && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
+                    </div>
+                    <button type="submit" disabled={isSubmitting} className="w-full px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-purple-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-surface_dark disabled:opacity-70 flex items-center justify-center gap-2">
+                        {isSubmitting && <SpinnerIcon className="w-5 h-5" />}
+                        {isSubmitting ? 'Sending...' : 'Request a Quote'}
+                    </button>
+                    {submitError && <p className="mt-2 text-sm text-center text-red-600 dark:text-red-400">{submitError}</p>}
+                  </form>
+                )}
+              </div>
+            </div>
+          </aside>
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
         </div>
       </div>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default ServiceDetailPage;
+=======
+export default ServiceDetailPage;
+>>>>>>> 780d8b4aa680c1b00773824e7f17a326e226323e
